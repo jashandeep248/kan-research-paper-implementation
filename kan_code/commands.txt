@@ -1,0 +1,21 @@
+# Run these commands in Windows PowerShell.
+# Open PowerShell in the kan_code project folder, or run:
+cd "D:\DTU 1 Sem\4. AI-ML\Research Paper\kan_code"
+
+# Create the virtual environment only if it does not already exist, then activate it.
+if (-not (Test-Path .venv)) { python -m venv .venv }
+.\.venv\Scripts\Activate.ps1
+
+# Install project dependencies.
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+
+# Run the unit tests.
+python tests\test_kan.py
+
+# Run all experiments (figures and JSON results are written to results\).
+python experiments\exp1_grid_extension.py
+python experiments\exp2_scaling_vs_mlp.py
+python experiments\exp3_symbolic_regression.py
+python experiments\exp4_continual_learning.py
+python experiments\exp5_pde_poisson.py
